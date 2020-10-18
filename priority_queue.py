@@ -4,7 +4,8 @@ import itertools
 
 from FibonacciHeap import FibHeap
 import heapq
-import Queue
+import queue
+
 
 class PriorityQueue():
     __metaclass__ = ABCMeta
@@ -24,6 +25,7 @@ class PriorityQueue():
     @abstractmethod
     def decreasekey(self, node, new_priority): pass
 
+
 class FibPQ(PriorityQueue):
     def __init__(self):
         self.heap = FibHeap()
@@ -42,6 +44,7 @@ class FibPQ(PriorityQueue):
 
     def decreasekey(self, node, new_priority):
         self.heap.decreasekey(node, new_priority)
+
 
 class HeapPQ(PriorityQueue):
     def __init__(self):
@@ -88,7 +91,7 @@ class HeapPQ(PriorityQueue):
 
 class QueuePQ(PriorityQueue):
     def __init__(self):
-        self.pq = Queue.PriorityQueue()
+        self.pq = queue.PriorityQueue()
         self.removed = set()
         self.count = 0
 
